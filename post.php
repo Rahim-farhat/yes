@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if(!isset($_SESSION['username'])){
+        header("Location: login.php");
+    }
     
 ?>
 <?php
@@ -39,8 +42,8 @@ if ($conn->query($sql1) === TRUE) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Create a New Post</h2>
     <form action="post.php" method="post" class="post-form">
+        <h2>Create a New Post</h2>
         <label for="Title" class="form-label">Title:</label><br>
         <textarea id="Title" name="Title" rows="4" cols="50" class="form-textarea"></textarea><br>
         <label for="Locations" class="form-label">Location:</label><br>
@@ -52,6 +55,11 @@ if ($conn->query($sql1) === TRUE) {
         <input type="submit" id="btn" value="Post" name="submit_post" class="btn-submit">
     </form>
 </body>
+<footer>
+        <div class="container">
+            <p>&copy; 2024 WarningNow. All rights reserved.</p>
+        </div>
+    </footer>
  
 </html>
 

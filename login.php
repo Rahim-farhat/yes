@@ -9,7 +9,7 @@ $login = false;
     include('connection.php');
     if (isset($_POST['submit'])) {
         $email = $_POST['user'];
-$password = $_POST['pass'];
+        $password = $_POST['pass'];
 
 
 $sql = "SELECT * FROM users WHERE (username='$email' OR email='$email') AND password='$password'";
@@ -45,7 +45,7 @@ if ($result->num_rows > 0) {
     echo "<script>setTimeout(function() { window.location.href = 'welcome.php'; }, 2000);</script>";
 } else {
     // No matching record found
-    echo "etudiant not found";
+    echo "user not found";
     echo "<script>setTimeout(function() { window.location.href = 'signup.php'; }, 2000);</script>";
 }
 
@@ -90,4 +90,9 @@ $conn->close();
             }
         </script>
     </body>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 WarningNow. All rights reserved.</p>
+        </div>
+    </footer>
 </html>
